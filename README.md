@@ -2,10 +2,10 @@
 Turn WorkBrain schedules into .ics files
 
 ### What's all this about?
-It's a very simple application to scrape the shifts off of a WorkBrain schedule page and spit out an iCal (.ics) file.  You can import an .ics file into any calendar application that matters.
+It's a very simple application to scrape the shifts off of a WorkBrain schedule page and spit out an iCal (.ics) file.
 
 ### Does this do anything evil, like steal my password?
-No.  Nothing is saved anywhere except the .ics file you export.  You don't have to use the login fields on the form if you don't want to.
+No.  Nothing is saved anywhere except the .ics file you export.  You don't have to use the login fields on the form if you don't want to.  It does not communicate with any server aside from the tlc site.
 
 ### Are you sure it doesn't do anything evil?
 Yes, I'm sure.  If you don't beleive me either check the source yourself or don't use it.
@@ -19,8 +19,14 @@ No, you'll need to do this every time your schedule changes
 ### My schedule spans more than one month, can I do both months in one go?
 No.  Do one month, close the app, then open it and do the second month.
 
+### Does this handle time zones?
+Not directly.  You can shift the resulting calendar events forward or backward using the time shift box on the form, but it doesn't embed any timezone information in the calendar.  I do it this way because time zone handling is complicated and relies on your clients having their time zone configured correctly, which isn't always the case.
+
 ### It's ignoring shifts that happened in the past.
 This is by design.
+
+### My shift is shorter/longer than eight hours, but it made an eight hour shift anyway.
+This is by design.  It makes parsing the shifts easier.  Sorry, but if your shift is shorter or longer you'll need to adjust it manually once you put it in whatever calendar software you use.
 
 ### I clicked a button at a time it didn't make sense to click that button, and it crashed.
 Only press the scrape button when there's a schedule on the screen to scrape.  Don't press the login button if you logged in manually.
