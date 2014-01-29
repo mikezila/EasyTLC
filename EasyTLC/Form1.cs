@@ -20,7 +20,7 @@ namespace EasyTLC
             icsResult = new iCalendar();
         }
 
-        // Turn self off, then place the user/pass and click login
+        // place the user/pass and click login
         private void button1_Click(object sender, EventArgs e)
         {
             // Plug in the values from the form.
