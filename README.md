@@ -5,7 +5,7 @@ Turn WorkBrain schedules into .ics files
 It's a very simple application to scrape the shifts off of a WorkBrain schedule page and spit out an iCal (.ics) file.
 
 ### Does this do anything evil, like steal my password?
-No.  Nothing is saved anywhere except the .ics file you export.  You don't have to use the login fields on the form if you don't want to.  It does not communicate with any server aside from the tlc site.
+No.
 
 ### Are you sure it doesn't do anything evil?
 Yes, I'm sure.  If you don't beleive me either check the source yourself or don't use it.
