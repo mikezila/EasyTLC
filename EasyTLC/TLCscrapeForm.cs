@@ -26,7 +26,7 @@ namespace EasyTLC
             try
             {
                 StreamReader creds = new StreamReader(Application.StartupPath + "\\creds.ini");
-                namePrefix.Text = creds.ReadLine();
+                eventNameTextBox.Text = creds.ReadLine();
                 BBYuserName.Text = creds.ReadLine();
                 BBYpassWord.Text = creds.ReadLine();
                 tlcTimeShift.Value = Int16.Parse(creds.ReadLine());
@@ -34,8 +34,7 @@ namespace EasyTLC
             }
             catch (FileNotFoundException ex)
             {
-                Console.WriteLine(ex.Message);
-                //throw;
+                // Silenty carry on, since this is kind of a secret feature.
             }
         }
 
@@ -105,7 +104,7 @@ namespace EasyTLC
 
                 // Make a new event, using the DateTime we just magic'd up.
                 var evt = new Event();
-                evt.Summary = namePrefix.Text; // Get event name
+                evt.Summary = eventNameTextBox.Text; // Get event name
                 evt.Start = new iCalDateTime(datShift);
                 // Eight hour shifts are the norm, so just assume the shift is eight hours.
                 // I know not every shift is, but oh well.

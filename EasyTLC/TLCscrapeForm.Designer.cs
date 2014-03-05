@@ -41,7 +41,7 @@
             this.exportButton = new System.Windows.Forms.Button();
             this.tlcTimeShift = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.namePrefix = new System.Windows.Forms.TextBox();
+            this.eventNameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tlcTimeShift)).BeginInit();
             this.SuspendLayout();
@@ -165,13 +165,13 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Time Shift (Hours)";
             // 
-            // namePrefix
+            // eventNameTextBox
             // 
-            this.namePrefix.Location = new System.Drawing.Point(121, 472);
-            this.namePrefix.Name = "namePrefix";
-            this.namePrefix.Size = new System.Drawing.Size(119, 20);
-            this.namePrefix.TabIndex = 14;
-            this.namePrefix.Text = "Work";
+            this.eventNameTextBox.Location = new System.Drawing.Point(121, 472);
+            this.eventNameTextBox.Name = "eventNameTextBox";
+            this.eventNameTextBox.Size = new System.Drawing.Size(119, 20);
+            this.eventNameTextBox.TabIndex = 14;
+            this.eventNameTextBox.Text = "Work";
             // 
             // label5
             // 
@@ -182,13 +182,13 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Event Name";
             // 
-            // Form1
+            // TLCscrapeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 558);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.namePrefix);
+            this.Controls.Add(this.eventNameTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tlcTimeShift);
             this.Controls.Add(this.exportButton);
@@ -204,7 +204,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "TLCscrapeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy TLC (Beta)";
             ((System.ComponentModel.ISupportInitialize)(this.tlcTimeShift)).EndInit();
@@ -227,7 +227,7 @@
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.NumericUpDown tlcTimeShift;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox namePrefix;
+        private System.Windows.Forms.TextBox eventNameTextBox;
         private System.Windows.Forms.Label label5;
     }
 }
