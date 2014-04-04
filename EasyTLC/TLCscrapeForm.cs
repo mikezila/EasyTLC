@@ -74,6 +74,8 @@ namespace EasyTLC
             {
                 if (curElement.GetAttribute("classname").Equals("calendarCellRegularCurrent") || curElement.GetAttribute("classname").Equals("calendarCellRegularFuture"))
                 {
+                    if (curElement.InnerText.Contains("OFF"))
+                        continue;
                     // We insert a ":00" so that the time is 10:15:00 PM instead of 10:15 PM, this lets us use DateTime.Parse() later.
                     rawShifts.Add(curElement.InnerText.Substring(0, 13).Replace(System.Environment.NewLine,"").Insert(8,":00"));
                 }
