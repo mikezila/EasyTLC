@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TLCscrapeForm));
             this.tlcBrowser = new System.Windows.Forms.WebBrowser();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BBYuserName = new System.Windows.Forms.TextBox();
             this.BBYpassWord = new System.Windows.Forms.TextBox();
@@ -56,15 +56,15 @@
             this.tlcBrowser.TabIndex = 1;
             this.tlcBrowser.Url = new System.Uri("http://mytlc.bestbuy.com", System.UriKind.Absolute);
             // 
-            // button1
+            // loginButton
             // 
-            this.button1.Location = new System.Drawing.Point(167, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 63);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.loginButton.Location = new System.Drawing.Point(167, 13);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 63);
+            this.loginButton.TabIndex = 2;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // label1
             // 
@@ -199,7 +199,7 @@
             this.Controls.Add(this.BBYpassWord);
             this.Controls.Add(this.BBYuserName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.tlcBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -216,7 +216,7 @@
         #endregion
 
         private System.Windows.Forms.WebBrowser tlcBrowser;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BBYuserName;
         private System.Windows.Forms.TextBox BBYpassWord;
