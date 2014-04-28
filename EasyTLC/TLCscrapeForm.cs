@@ -48,7 +48,7 @@ namespace EasyTLC
             }
         }
 
-        // Scape the schedule.
+        // Scape the schedule.  Nasty screen-scraping, but oh well.
         private void scrapeButton_Click(object sender, EventArgs e)
         {
             scrapeButton.Enabled = false;
@@ -103,12 +103,16 @@ namespace EasyTLC
                 DateTime shiftStart = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(0, 11)).AddHours((int)tlcTimeShift.Value);
                 DateTime shiftEnd = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(14)).AddHours((int)tlcTimeShift.Value);
 
+                // To fix shifts that cross midnight.
+                if (DateTime.Compare(shiftStart, shiftEnd) < 0)
+                    shiftEnd.AddDays(1);
+
                 Event evt = new Event();
                 evt.Summary = eventNameTextBox.Text;
                 evt.Start = new iCalDateTime(shiftStart);
                 evt.End = new iCalDateTime(shiftEnd);
 
-                events.Add(evt); 
+                events.Add(evt);
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer(icsResult);
