@@ -32,7 +32,7 @@ namespace EasyTLC
             }
             catch (FileNotFoundException ex)
             {
-                Console.WriteLine("Warning: creds.ini wasn't found. " + ex.Message);
+                Console.WriteLine("Warning: creds.ini wasn't found." + ex.Message);
             }
         }
 
@@ -100,12 +100,15 @@ namespace EasyTLC
 
                 Console.WriteLine(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(0, 11));
 
-                DateTime shiftStart = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(0, 11)).AddHours((int)tlcTimeShift.Value);
-                DateTime shiftEnd = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(14)).AddHours((int)tlcTimeShift.Value);
+                DateTime shiftStart = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(0, 11));
+                DateTime shiftEnd = DateTime.Parse(shiftPrefix + " " + dayNumber + " " + workingShift.Substring(14));
 
                 // To fix shifts that cross midnight.
-                if (DateTime.Compare(shiftStart, shiftEnd) < 0)
-                    shiftEnd.AddDays(1);
+                if (DateTime.Compare(shiftStart, shiftEnd) > 0)
+                    shiftEnd = shiftEnd.AddDays(1);
+
+                shiftStart = shiftStart.AddHours((int)tlcTimeShift.Value);
+                shiftEnd = shiftEnd.AddHours((int)tlcTimeShift.Value);
 
                 Event evt = new Event();
                 evt.Summary = eventNameTextBox.Text;

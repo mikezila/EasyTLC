@@ -11,7 +11,7 @@ No.  Though you can specify your credentials, time offset, and chosen event name
 Yes, I'm sure.  If you don't trust me either check the source yourself or don't use it.
 
 ### What can I do with this .ics file?
-Any calendar application should be able to import it.  I've tried it with Outlook 2013 on Windows, Outlook 2010 on Mac, and Outlook.com via browser, it works fine on all of them.  You might need to just drag and drop the file onto the calendar in Outlook on Windows/Mac.
+Almost any calendar application should be able to import it.  I've tried it with Outlook 2013 on Windows, Outlook 2010 on Mac, and Outlook.com via a browser, it works fine on all of them.  You might need to just drag and drop the file onto the calendar in Outlook on Windows/Mac.
 
 ### Does this automatically sync my schedule?
 No, you'll need to do this every time your schedule changes
