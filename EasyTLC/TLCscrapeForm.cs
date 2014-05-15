@@ -51,8 +51,6 @@ namespace EasyTLC
         // Scape the schedule.  Nasty screen-scraping, but oh well.
         private void scrapeButton_Click(object sender, EventArgs e)
         {
-            scrapeButton.Enabled = false;
-
             foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("span"))
             {
                 if (curElement.GetAttribute("classname").Equals("calMonthTitle"))
@@ -77,12 +75,6 @@ namespace EasyTLC
             foreach (string entry in rawShifts)
                 scheduleReadout.Text += entry + "\n";
 
-            for (int i = 0; i < rawShifts.Count; i++)
-            {
-                rawShifts[i] = rawShifts[i].Insert(19, ":00");
-                rawShifts[i] = rawShifts[i].Insert(8, ":00");
-            }
-
             exportButton.Enabled = true;
         }
 
@@ -90,6 +82,12 @@ namespace EasyTLC
         private void exportButton_Click(object sender, EventArgs e)
         {
             UniqueComponentList<Event> events = new UniqueComponentList<Event>(icsResult);
+
+            for (int i = 0; i < rawShifts.Count; i++)
+            {
+                rawShifts[i] = rawShifts[i].Insert(19, ":00");
+                rawShifts[i] = rawShifts[i].Insert(8, ":00");
+            }
 
             string shiftPrefix = rawYear + " " + rawMonth;
 
