@@ -206,7 +206,7 @@
             this.MaximizeBox = false;
             this.Name = "TLCscrapeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Easy TLC (Beta)";
+            this.Text = "Easy TLC v2";
             ((System.ComponentModel.ISupportInitialize)(this.tlcTimeShift)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

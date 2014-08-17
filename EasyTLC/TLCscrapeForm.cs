@@ -25,12 +25,13 @@ namespace EasyTLC
             // silently fail if that file isn't present, and the fields will be left blank.
             try
             {
-                StreamReader creds = new StreamReader(Application.StartupPath + "\\creds.ini");
-                eventNameTextBox.Text = creds.ReadLine();
-                BBYuserName.Text = creds.ReadLine();
-                BBYpassWord.Text = creds.ReadLine();
-                tlcTimeShift.Value = Int16.Parse(creds.ReadLine());
-                creds.Dispose();
+                using (StreamReader creds = new StreamReader(Application.StartupPath + "\\creds.ini"))
+                {
+                    BBYuserName.Text = creds.ReadLine();
+                    BBYpassWord.Text = creds.ReadLine();
+                    eventNameTextBox.Text = creds.ReadLine();
+                    tlcTimeShift.Value = Int16.Parse(creds.ReadLine());
+                }
             }
             catch (FileNotFoundException ex)
             {
@@ -46,9 +47,9 @@ namespace EasyTLC
             tlcBrowser.Document.All["password"].SetAttribute("value", BBYpassWord.Text);
 
             // Find and click the login link
-            foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("span"))
+            foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("button"))
             {
-                if (curElement.GetAttribute("classname").Equals("buttonNavigationText"))
+                if (curElement.GetAttribute("classname").Equals("inforFormButton default"))
                     curElement.InvokeMember("click");
             }
         }
@@ -62,11 +63,12 @@ namespace EasyTLC
             // Grab current month and year
             foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("span"))
             {
-                if (curElement.GetAttribute("classname").Equals("calMonthTitle"))
-                    rawMonth = curElement.InnerText;
-
-                if (curElement.GetAttribute("classname").Equals("calYearTitle"))
-                    rawYear = curElement.InnerText;
+                if (curElement.GetAttribute("classname").Equals("pageTitle"))
+                {
+                    string rawMonthYear = curElement.InnerText;
+                    rawYear = rawMonthYear.Substring(rawMonthYear.Length - 4);
+                    rawMonth = rawMonthYear.Substring(0, rawMonthYear.Length - 5);
+                }
             }
 
             // Grab shifts from days that are either today or in the future.
