@@ -24,15 +24,10 @@ namespace EasyTLC
             {
                 using (StreamReader creds = new StreamReader(Application.StartupPath + "\\creds.ini"))
                 {
-<<<<<<< HEAD
                     BBYuserName.Text = creds.ReadLine();
                     BBYpassWord.Text = creds.ReadLine();
                     eventNameTextBox.Text = creds.ReadLine();
-=======
-                    eventNameTextBox.Text = creds.ReadLine();
-                    BBYuserName.Text = creds.ReadLine();
-                    BBYpassWord.Text = creds.ReadLine();
->>>>>>> origin/master
+
                     tlcTimeShift.Value = Int16.Parse(creds.ReadLine());
                 }
             }
@@ -47,12 +42,8 @@ namespace EasyTLC
             tlcBrowser.Document.All["login"].SetAttribute("value", BBYuserName.Text);
             tlcBrowser.Document.All["password"].SetAttribute("value", BBYpassWord.Text);
 
-<<<<<<< HEAD
-            // Find and click the login link
+       // Find and click the login link
             foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("button"))
-=======
-            foreach (HtmlElement curElement in tlcBrowser.Document.GetElementsByTagName("span"))
->>>>>>> origin/master
             {
                 if (curElement.GetAttribute("classname").Equals("inforFormButton default"))
                     curElement.InvokeMember("click");
