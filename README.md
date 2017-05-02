@@ -1,6 +1,9 @@
 # EasyTLC
 Turn WorkBrain schedules into .ics files
 
+## A warning
+This is broken.  It hasn't been updated in years.  It's left here for historical purposes.
+
 ### What's all this about?
 It's a very simple application to scrape the shifts off of a WorkBrain schedule page and spit out an iCal (.ics) file.
 
